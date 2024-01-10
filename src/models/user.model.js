@@ -75,16 +75,15 @@ userSchema.methods.genrateAccessToken = function () {
   );
 };
 userSchema.methods.genrateRefreshToken = function () {
-    return jwt.sign(
-        {
-          _id: this._id,
-         
-        },
-        process.env.REFRESH_TOKEN_SECRET,
-        {
-          expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
-        }
-      );
+  return jwt.sign(
+    {
+      _id: this._id,
+    },
+    process.env.REFRESH_TOKEN_SECRET,
+    {
+      expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
+    }
+  );
 };
 
 export default User = mongoose.model("User", userSchema);
